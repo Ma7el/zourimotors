@@ -121,9 +121,9 @@ const PRODUCTS = [
   {
     id: 17,
     name: 'شعار القيادة العامة',
-    brand: 'Haftar',
+    brand: 'القيادة العامة',
     price: '99 دينار',
-    image: '/zourimotors/products/dodge.png',
+    image: '/zourimotors/products/haftar.png',
   },
 ]
 
