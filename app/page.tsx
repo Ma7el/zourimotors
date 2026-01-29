@@ -108,6 +108,13 @@ const PRODUCTS = [
     price: '99 دينار',
     image: getImagePath('/products/kia.png'),
   },
+  {
+    id: 15,
+    name: 'حفتر',
+    brand: 'Haftar',
+    price: '99 دينار',
+    image: getImagePath('/products/haftar.png'),
+  },
 ]
 
 export default function Home() {
@@ -221,7 +228,7 @@ export default function Home() {
                   {/* Product Image Container */}
                   <div className="relative w-full h-48 bg-neutral-900">
                     <Image
-                      src={getImagePath(product.image)}
+                      src={product.image}
                       alt={product.name}
                       fill
                       className="object-contain"
