@@ -3,8 +3,8 @@ import './globals.css'
 import { CartProvider } from '@/contexts/CartContext'
 
 export const metadata: Metadata = {
-  title: 'زوري موتورز - مشاريع شعارات أبواب السيارات الفاخرة',
-  description: 'أنظمة إسقاط سيارات مميزة للسائق العصري',
+  title: 'زوري موتورز - بروجيكتر شعارات أبواب السيارات الفاخرة',
+  description: 'أنظمة بروجيكتر سيارات مميزة للسائق العصري',
 }
 
 export default function RootLayout({

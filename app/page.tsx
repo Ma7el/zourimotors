@@ -105,6 +105,13 @@ const PRODUCTS = [
     price: '99 دينار',
     image: '/products/kia.png',
   },
+  {
+    id: 15,
+    name: 'شعار القيادة العامة',
+    brand: 'القيادة العامة',
+    price: '99 دينار',
+    image: '/zourimotors/products/haftar.png',
+  },
 ]
 
 export default function Home() {
