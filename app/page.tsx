@@ -118,6 +118,13 @@ const PRODUCTS = [
     price: '99 دينار',
     image: '/zourimotors/products/hundai.png',
   },
+  {
+    id: 17,
+    name: 'شعار القيادة العامة',
+    brand: 'Haftar',
+    price: '99 دينار',
+    image: '/zourimotors/products/dodge.png',
+  },
 ]
 
 export default function Home() {
