@@ -1,4 +1,4 @@
-import { Instagram, Twitter, Facebook, Mail } from 'lucide-react'
+import { Instagram, Twitter, Facebook } from 'lucide-react'
 
 export default function Footer() {
   return (
@@ -54,21 +54,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contact */}
-          <div>
-            <h3 className="text-white font-semibold mb-4">اتصل بنا</h3>
-            <ul className="space-y-2">
-              <li>
-                <a
-                  href="mailto:khazouri8@gmail.com"
-                  className="text-neutral-400 hover:text-white transition-colors text-sm flex items-center gap-2"
-                >
-                  <Mail className="w-4 h-4" />
-                  khazouri8@gmail.com
-                </a>
-              </li>
-            </ul>
-          </div>
+
         </div>
 
         {/* Social Media & Copyright */}
