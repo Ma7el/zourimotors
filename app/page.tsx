@@ -226,27 +226,22 @@ export default function Home() {
                   className="flex flex-col justify-between rounded-2xl border border-neutral-900 bg-black/40 overflow-hidden"
                 >
                   {/* Product Image Container */}
-                  <div className="relative w-full h-48 bg-neutral-900">
-                    <Image
+                  <div className="relative w-full h-48 bg-neutral-900 flex items-center justify-center">
+                    <img
                       src={product.image}
                       alt={product.name}
-                      fill
-                      className="object-contain"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                      className="object-contain max-w-full max-h-full"
                       onError={(e) => {
-                        // Fallback if image fails to load
                         const target = e.target as HTMLImageElement
                         target.style.display = 'none'
                         const parent = target.parentElement
                         if (parent) {
                           parent.innerHTML = `
-                            <div class="w-full h-full flex items-center justify-center">
-                              <div class="text-center p-4">
-                                <div class="w-24 h-24 mx-auto mb-3 border-2 border-dashed border-neutral-700 rounded-lg flex items-center justify-center">
-                                  <span class="text-neutral-600 text-xs text-center px-2">${product.brand}</span>
-                                </div>
-                                <p class="text-xs text-neutral-500">صورة المنتج</p>
+                            <div class="text-center p-4">
+                              <div class="w-24 h-24 mx-auto mb-3 border-2 border-dashed border-neutral-700 rounded-lg flex items-center justify-center">
+                                <span class="text-neutral-600 text-xs text-center px-2">${product.brand}</span>
                               </div>
+                              <p class="text-xs text-neutral-500">صورة المنتج</p>
                             </div>
                           `
                         }
