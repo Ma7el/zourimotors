@@ -4,10 +4,6 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import { Shield, Truck, Award, Star, ShoppingCart } from 'lucide-react'
 import { useCart } from '@/contexts/CartContext'
-import Image from 'next/image'
-
-const basePath = '/zourimotors'
-const getImagePath = (path: string) => `${basePath}${path}`
 
 const PRODUCTS = [
   {
@@ -15,105 +11,112 @@ const PRODUCTS = [
     name: 'مرسيدس بنز',
     brand: 'Mercedes-Benz',
     price: '99 دينار',
-    image: getImagePath('/products/mercedes-benz.png'),
+    image: '/zourimotors/products/mercedes-benz.png',
   },
   {
     id: 2,
     name: 'بي إم دبليو',
     brand: 'BMW',
     price: '99 دينار',
-    image: getImagePath('/products/bmw.png'),
+    image: '/zourimotors/products/bmw.png',
   },
   {
     id: 3,
     name: 'أودي',
     brand: 'Audi',
     price: '99 دينار',
-    image: getImagePath('/products/audi.png'),
+    image: '/zourimotors/products/audi.png',
   },
   {
     id: 4,
     name: 'تويوتا',
     brand: 'Toyota',
     price: '99 دينار',
-    image: getImagePath('/products/toyota.png'),
+    image: '/zourimotors/products/toyota.png',
   },
   {
     id: 5,
     name: 'فولكسفاغن',
     brand: 'Volkswagen',
     price: '99 دينار',
-    image: getImagePath('/products/volkswagen.png'),
+    image: '/zourimotors/products/volkswagen.png',
   },
   {
     id: 6,
     name: 'كيا 2',
     brand: 'Kia 2',
     price: '99 دينار',
-    image: getImagePath('/products/kia2.png'),
+    image: '/zourimotors/products/kia2.png',
   },
   {
     id: 7,
     name: 'مرسيدس بنز 2',
     brand: 'Mercedes-Benz 2',
     price: '99 دينار',
-    image: getImagePath('/products/merceds-benz2.png'),
+    image: '/zourimotors/products/merceds-benz2.png',
   },
   {
     id: 8,
     name: 'شيفروليه',
     brand: 'Chevrolet',
     price: '99 دينار',
-    image: getImagePath('/products/cheverolet.png'),
+    image: '/zourimotors/products/cheverolet.png',
   },
   {
     id: 9,
     name: 'ميني كوبر',
     brand: 'Mini Cooper',
     price: '99 دينار',
-    image: getImagePath('/products/mini-cooper.png'),
+    image: '/zourimotors/products/mini-cooper.png',
   },
   {
     id: 10,
     name: 'جينيسيس',
     brand: 'Genesis',
     price: '99 دينار',
-    image: getImagePath('/products/genisis.png'),
+    image: '/zourimotors/products/genisis.png',
   },
   {
     id: 11,
     name: 'دودج',
     brand: 'Dodge',
     price: '99 دينار',
-    image: getImagePath('/products/dodge.png'),
+    image: '/zourimotors/products/dodge.png',
   },
   {
     id: 12,
     name: 'سامسونج',
     brand: 'Samsung',
     price: '99 دينار',
-    image: getImagePath('/products/samsung.png'),
+    image: '/zourimotors/products/samsung.png',
   },
   {
     id: 13,
     name: 'هنداي',
-    brand: 'Hundai',
+    brand: 'Hyundai',
     price: '99 دينار',
-    image: getImagePath('/products/hundai.png'),
+    image: '/zourimotors/products/hyundai.png',
   },
   {
     id: 14,
     name: 'كيا',
     brand: 'Kia',
     price: '99 دينار',
-    image: getImagePath('/products/kia.png'),
+    image: '/zourimotors/products/kia.png',
   },
   {
     id: 15,
-    name: 'حفتر',
-    brand: 'Haftar',
+    name: 'لكسوس',
+    brand: 'Lexus',
     price: '99 دينار',
-    image: getImagePath('/products/haftar.png'),
+    image: '/zourimotors/products/lexus.png',
+  },
+  {
+    id: 16,
+    name: 'هنداي',
+    brand: 'Hundai',
+    price: '99 دينار',
+    image: '/zourimotors/products/hundai.png',
   },
 ]
 
@@ -144,12 +147,10 @@ export default function Home() {
           {/* Brand Logo Section */}
           <div className="mb-12 flex justify-center">
             <div className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80">
-              <Image
-                src={getImagePath('/zourilogo.png')}
+              <img
+                src="/zourimotors/zourilogo.png"
                 alt="ZOURI MOTORS Logo"
-                fill
-                className="object-contain"
-                priority
+                className="w-full h-full object-contain"
               />
             </div>
           </div>
