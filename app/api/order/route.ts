@@ -2,41 +2,41 @@ import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 
 export async function POST(request: Request) {
-  try {
-    const data = await request.formData();
+    try {
+        const data = await request.formData();
 
-    // Extract data
-    const name = data.get('name');
-    const phone = data.get('phone');
-    const city = data.get('city');
-    const address = data.get('address');
-    const products = data.get('products'); // This is the formatted string from the frontend
-    const totalItems = data.get('total_items');
-    const cartSummary = data.get('cart_summary'); // Assuming this includes price if available
+        // Extract data
+        const name = data.get('name');
+        const phone = data.get('phone');
+        const city = data.get('city');
+        const address = data.get('address');
+        const products = data.get('products'); // This is the formatted string from the frontend
+        const totalItems = data.get('total_items');
+        const cartSummary = data.get('cart_summary'); // Assuming this includes price if available
 
-    // Validate
-    if (!name || !phone || !city || !address) {
-      return NextResponse.json({ success: false, message: 'Missing required fields' }, { status: 400 });
-    }
+        // Validate
+        if (!name || !phone || !city || !address) {
+            return NextResponse.json({ success: false, message: 'Missing required fields' }, { status: 400 });
+        }
 
-    // Configure Transporter
-    const transporter = nodemailer.createTransport({
-      service: 'gmail',
-      auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
-      },
-      tls: {
-        rejectUnauthorized: false
-      }
-    });
+        // Configure Transporter
+        const transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+                user: process.env.EMAIL_USER,
+                pass: process.env.EMAIL_PASS,
+            },
+            tls: {
+                rejectUnauthorized: false
+            }
+        });
 
-    // Email Content
-    const mailOptions = {
-      from: `"Zouri Motors Order System" <${process.env.EMAIL_USER}>`,
-      to: 'khazouri8@gmail.com', // The user's email
-      subject: `New Order from ${name} - ${city}`,
-      text: `
+        // Email Content
+        const mailOptions = {
+            from: `"Zouri Motors Order System" <${process.env.EMAIL_USER}>`,
+            to: 'khazouri8@gmail.com', // The user's email
+            subject: `New Order from ${name} - ${city}`,
+            text: `
 New Order Received!
 
 CUSTOMER DETAILS:
@@ -54,7 +54,7 @@ ${products}
 SUMMARY:
 ${cartSummary}
       `,
-      html: `
+            html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; border: 1px solid #333; padding: 20px; background-color: #f9f9f9;">
           <h2 style="color: #000; border-bottom: 2px solid #000; padding-bottom: 10px;">New Order Received</h2>
           
@@ -86,17 +86,17 @@ ${cartSummary}
           </p>
         </div>
       `,
-    };
+        };
 
-    // Send Email
-    await transporter.sendMail(mailOptions);
+        // Send Email
+        await transporter.sendMail(mailOptions);
 
-    // Redirect to home with success (or return JSON if you want to handle it with JS on frontend)
-    // Since the form uses standard action="", we can redirect.
-    return NextResponse.redirect(new URL('/thank-you', request.url), 303);
+        // Redirect to home with success (or return JSON if you want to handle it with JS on frontend)
+        // Since the form uses standard action="", we can redirect.
+        return NextResponse.redirect(new URL('/thank-you', request.url), 303);
 
-  } catch (error) {
-    console.error('Error processing order:', error);
-    return NextResponse.json({ success: false, message: 'Failed to process order' }, { status: 500 });
-  }
+    } catch (error) {
+        console.error('Error processing order:', error);
+        return NextResponse.json({ success: false, message: 'Failed to process order' }, { status: 500 });
+    }
 }
