@@ -7,22 +7,22 @@ import { useCart } from '@/contexts/CartContext'
 import Image from 'next/image'
 
 const PRODUCTS = [
-  { id: 1, name: 'مرسيدس بنز', brand: 'Mercedes-Benz', price: '99 دينار', image: '/products/mercedes-benz.png' },
-  { id: 2, name: 'بي إم دبليو', brand: 'BMW', price: '99 دينار', image: '/products/bmw.png' },
-  { id: 3, name: 'أودي', brand: 'Audi', price: '99 دينار', image: '/products/audi.png' },
-  { id: 4, name: 'تويوتا', brand: 'Toyota', price: '99 دينار', image: '/products/toyota.png' },
-  { id: 5, name: 'فولكسفاغن', brand: 'Volkswagen', price: '99 دينار', image: '/products/volkswagen.png' },
-  { id: 6, name: 'كيا 2', brand: 'Kia 2', price: '99 دينار', image: '/products/kia2.png' },
-  { id: 7, name: 'مرسيدس بنز 2', brand: 'Mercedes-Benz 2', price: '99 دينار', image: '/products/merceds-benz2.png' },
-  { id: 8, name: 'شيفروليه', brand: 'Chevrolet', price: '99 دينار', image: '/products/cheverolet.png' },
-  { id: 9, name: 'ميني كوبر', brand: 'Mini Cooper', price: '99 دينار', image: '/products/mini-cooper.png' },
-  { id: 10, name: 'جينيسيس', brand: 'Genesis', price: '99 دينار', image: '/products/genisis.png' },
-  { id: 11, name: 'دودج', brand: 'Dodge', price: '99 دينار', image: '/products/dodge.png' },
-  { id: 12, name: 'سامسونج', brand: 'Samsung', price: '99 دينار', image: '/products/samsung.png' },
-  { id: 13, name: 'هيونداي', brand: 'Hyundai', price: '99 دينار', image: '/products/hyundai.png' },
-  { id: 14, name: 'كيا', brand: 'Kia', price: '99 دينار', image: '/products/kia.png' },
-  { id: 15, name: 'لكزس', brand: 'Lexus', price: '99 دينار', image: '/products/lexus.png' },
-  { id: 16, name: 'شعار القيادة العامة', brand: 'القيادة العامة', price: '99 دينار', image: '/products/haftar.png' },
+  { id: 1, name: 'مرسيدس بنز', brand: 'Mercedes-Benz', price: '110 دينار', image: '/products/mercedes-benz.png' },
+  { id: 2, name: 'بي إم دبليو', brand: 'BMW', price: '110 دينار', image: '/products/bmw.png' },
+  { id: 3, name: 'أودي', brand: 'Audi', price: '110 دينار', image: '/products/audi.png' },
+  { id: 4, name: 'تويوتا', brand: 'Toyota', price: '110 دينار', image: '/products/toyota.png' },
+  { id: 5, name: 'فولكسفاغن', brand: 'Volkswagen', price: '110 دينار', image: '/products/volkswagen.png' },
+  { id: 6, name: 'كيا 2', brand: 'Kia 2', price: '110 دينار', image: '/products/kia2.png' },
+  { id: 7, name: 'مرسيدس بنز 2', brand: 'Mercedes-Benz 2', price: '110 دينار', image: '/products/merceds-benz2.png' },
+  { id: 8, name: 'شيفروليه', brand: 'Chevrolet', price: '110 دينار', image: '/products/cheverolet.png' },
+  { id: 9, name: 'ميني كوبر', brand: 'Mini Cooper', price: '110 دينار', image: '/products/mini-cooper.png' },
+  { id: 10, name: 'جينيسيس', brand: 'Genesis', price: '110 دينار', image: '/products/genisis.png' },
+  { id: 11, name: 'دودج', brand: 'Dodge', price: '110 دينار', image: '/products/dodge.png' },
+  { id: 12, name: 'سامسونج', brand: 'Samsung', price: '110 دينار', image: '/products/samsung.png' },
+  { id: 13, name: 'هيونداي', brand: 'Hyundai', price: '110 دينار', image: '/products/hyundai.png' },
+  { id: 14, name: 'كيا', brand: 'Kia', price: '110 دينار', image: '/products/kia.png' },
+  { id: 15, name: 'لكزس', brand: 'Lexus', price: '110 دينار', image: '/products/lexus.png' },
+  { id: 16, name: 'شعار القيادة العامة', brand: 'القيادة العامة', price: '110 دينار', image: '/products/haftar.png' },
 ]
 
 export default function Home() {
@@ -149,11 +149,10 @@ export default function Home() {
                       <button
                         onClick={() => handleAddToCart(product)}
                         disabled={inCart}
-                        className={`inline-flex items-center justify-center gap-1.5 rounded-full border border-white px-4 py-1.5 text-xs font-medium uppercase tracking-[0.18em] transition-colors ${
-                          inCart
-                            ? 'bg-neutral-700 text-neutral-400 border-neutral-700 cursor-not-allowed'
-                            : 'text-black bg-white hover:bg-black hover:text-white'
-                        }`}
+                        className={`inline-flex items-center justify-center gap-1.5 rounded-full border border-white px-4 py-1.5 text-xs font-medium uppercase tracking-[0.18em] transition-colors ${inCart
+                          ? 'bg-neutral-700 text-neutral-400 border-neutral-700 cursor-not-allowed'
+                          : 'text-black bg-white hover:bg-black hover:text-white'
+                          }`}
                       >
                         {inCart ? (
                           <>
