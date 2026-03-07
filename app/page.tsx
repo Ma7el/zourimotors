@@ -23,6 +23,13 @@ const PRODUCTS = [
   { id: 14, name: 'كيا', brand: 'Kia', price: '110 دينار', image: '/products/kia.png' },
   { id: 15, name: 'لكزس', brand: 'Lexus', price: '110 دينار', image: '/products/lexus.png' },
   { id: 16, name: 'شعار القيادة العامة', brand: 'القيادة العامة', price: '110 دينار', image: '/products/haftar.png' },
+  { id: 17, name: 'نيسان', brand: 'Nissan', price: '110 دينار', image: '/products/nissan.png' },
+  { id: 18, name: 'ميتسوبيشي', brand: 'Mitsubishi', price: '110 دينار', image: '/products/mitsubishi.png' },
+  { id: 19, name: 'كاديلاك', brand: 'Cadillac', price: '110 دينار', image: '/products/cadillac.png' },
+  { id: 20, name: 'بورش', brand: 'Porsche', price: '110 دينار', image: '/products/porsche.png' },
+  { id: 21, name: 'إم جي', brand: 'MG', price: '110 دينار', image: '/products/mg.png' },
+  { id: 22, name: 'جيب', brand: 'Jeep', price: '110 دينار', image: '/products/jeep.png' },
+  { id: 23, name: 'فورد', brand: 'Ford', price: '110 دينار', image: '/products/ford.png' },
 ]
 
 export default function Home() {
