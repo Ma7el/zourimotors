@@ -5,6 +5,7 @@ import Footer from '@/components/Footer'
 import { Shield, Truck, Award, Star, ShoppingCart } from 'lucide-react'
 import { useCart } from '@/contexts/CartContext'
 import Image from 'next/image'
+import { useRouter } from 'next/navigation'
 
 const PRODUCTS = [
   { id: 1, name: 'مرسيدس بنز', brand: 'Mercedes-Benz', price: '110 دينار', image: '/products/mercedes-benz.png' },
@@ -33,7 +34,8 @@ const PRODUCTS = [
 ]
 
 export default function Home() {
-  const { addToCart, cart } = useCart()
+  const { addToCart, cart, clearCart } = useCart()
+  const router = useRouter()
 
   const handleAddToCart = (product: typeof PRODUCTS[0]) => {
     addToCart({
@@ -43,6 +45,18 @@ export default function Home() {
       price: product.price,
       image: product.image,
     })
+  }
+
+  const handleBuyNow = (product: typeof PRODUCTS[0]) => {
+    clearCart()
+    addToCart({
+      id: product.id,
+      name: product.name,
+      brand: product.brand,
+      price: product.price,
+      image: product.image,
+    })
+    router.push('/checkout')
   }
 
   const isInCart = (productId: number) => {
@@ -116,6 +130,18 @@ export default function Home() {
       {/* Product grid */}
       <section id="products" className="pb-24 px-4 sm:px-6 lg:px-8 border-t border-neutral-900">
         <div className="max-w-6xl mx-auto">
+          <div className="mb-12 mt-12 flex justify-center">
+            <div className="relative w-full max-w-4xl h-64 sm:h-80 md:h-[500px]">
+              <Image
+                src="/projectors.png"
+                alt="Projectors Preview"
+                fill
+                className="object-contain"
+                priority
+              />
+            </div>
+          </div>
+
           <div className="mb-8">
             <h2 className="text-xl sm:text-2xl font-semibold tracking-tight text-white">
               المتجر
@@ -151,28 +177,27 @@ export default function Home() {
                         بروجيكتر شعار عالي الوضوح للأبواب.
                       </p>
                     </div>
-                    <div className="mt-auto flex items-center justify-between gap-3">
+                    <div className="mt-auto flex flex-col gap-3">
                       <span className="text-sm font-medium text-white">{product.price}</span>
-                      <button
-                        onClick={() => handleAddToCart(product)}
-                        disabled={inCart}
-                        className={`inline-flex items-center justify-center gap-1.5 rounded-full border border-white px-4 py-1.5 text-xs font-medium uppercase tracking-[0.18em] transition-colors ${inCart
-                          ? 'bg-neutral-700 text-neutral-400 border-neutral-700 cursor-not-allowed'
-                          : 'text-black bg-white hover:bg-black hover:text-white'
-                          }`}
-                      >
-                        {inCart ? (
-                          <>
-                            <ShoppingCart className="w-3 h-3" />
-                            في السلة
-                          </>
-                        ) : (
-                          <>
-                            <ShoppingCart className="w-3 h-3" />
-                            أضف للسلة
-                          </>
-                        )}
-                      </button>
+                      <div className="flex flex-col gap-2">
+                        <button
+                          onClick={() => handleBuyNow(product)}
+                          className="w-full inline-flex items-center justify-center rounded-full bg-white text-black px-4 py-2.5 text-sm font-bold transition-colors hover:bg-gray-200"
+                        >
+                          اشتري الآن
+                        </button>
+                        <button
+                          onClick={() => handleAddToCart(product)}
+                          disabled={inCart}
+                          className={`w-full inline-flex items-center justify-center gap-1.5 rounded-full border px-4 py-2 text-sm font-medium transition-colors ${inCart
+                            ? 'bg-neutral-800 text-neutral-500 border-neutral-800 cursor-not-allowed'
+                            : 'border-white text-white hover:bg-white hover:text-black'
+                            }`}
+                        >
+                          <ShoppingCart className="w-4 h-4" />
+                          {inCart ? 'في السلة' : 'أضف للسلة'}
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </article>
